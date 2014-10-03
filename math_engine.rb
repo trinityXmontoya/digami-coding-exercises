@@ -4,7 +4,7 @@
 # require 'json'
 
 get '/nums' do
-  arr = params["values"]
+  arr = JSON.parse(params["values"])["values"]
   sum = arr.inject(:+)
   product = arr.inject(:*)
   return { "sum": sum, "product":product }.to_json
